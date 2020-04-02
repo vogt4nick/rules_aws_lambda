@@ -42,3 +42,13 @@ lambda_python_pkg = rule(
         ),
     },
 )
+
+def _lambda_deploy_impl(ctx):
+    print(ctx)
+
+lambda_deploy = rule(
+    implementation = _lambda_deploy_impl,
+    attrs = {
+        "pkg": attr.label(mandatory = True),
+    },
+)
